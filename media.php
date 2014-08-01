@@ -32,10 +32,11 @@ add_action( 'admin_print_styles', 'sc_add_admin_stylesheets' );
 
 
 function sc_add_javascripts(){
-	$deps = array( 'jquery', 'jquery-ui-core' );
+	$deps = array( 'jquery' );
 	$wordpress_enabled = get_option( 'social_connect_wordpress_enabled' );
-	
+
 	if ( $wordpress_enabled ) {
+		$deps[] = 'jquery-ui-core';
 		$deps[] = 'jquery-ui-dialog';
 	}
 
