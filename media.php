@@ -1,5 +1,6 @@
 <?php
 
+/*
 function sc_add_stylesheets(){
 	if( !wp_style_is( 'social_connect', 'registered' ) ) {
 		wp_register_style( "social_connect", SOCIAL_CONNECT_PLUGIN_URL . "/media/css/style.css" );
@@ -16,7 +17,6 @@ function sc_add_stylesheets(){
 add_action( 'login_enqueue_scripts', 'sc_add_stylesheets' );
 add_action( 'wp_head', 'sc_add_stylesheets' );
 
-
 function sc_add_admin_stylesheets(){
 	if( !wp_style_is( 'social_connect', 'registered' ) ) {
 		wp_register_style( "social_connect", SOCIAL_CONNECT_PLUGIN_URL . "/media/css/style.css" );
@@ -29,7 +29,6 @@ function sc_add_admin_stylesheets(){
 	}
 }
 add_action( 'admin_print_styles', 'sc_add_admin_stylesheets' );
-
 
 function sc_add_javascripts(){
 	$deps = array( 'jquery' );
@@ -48,3 +47,6 @@ function sc_add_javascripts(){
 }
 add_action( 'login_enqueue_scripts', 'sc_add_javascripts' );
 add_action( 'wp_enqueue_scripts', 'sc_add_javascripts' );
+*/
+
+?>
