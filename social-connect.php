@@ -358,7 +358,7 @@ function sc_filter_avatar($avatar, $id_or_email, $size, $default, $alt) {
 					$size_label = 'mini';
 				}
 
-				$custom_avatar = get_user_meta(get_current_user_id(), 'social_connect_twitter_avatar');
+				$custom_avatar = get_user_meta($user_id, 'social_connect_twitter_avatar');
 				$custom_avatar = str_replace('_normal', '_'.$size_label, $custom_avatar);
 				break;
 		}
