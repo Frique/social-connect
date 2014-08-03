@@ -50,15 +50,23 @@ function sc_render_login_form_social_connect( $args = NULL ) {
 			$social_connect_provider = isset( $_COOKIE['social_connect_current_provider']) ? $_COOKIE['social_connect_current_provider'] : '';
 
 			do_action ('social_connect_auth'); ?>
-			<div id="social_connect_facebook_auth social_connect_hidden">
+
+			<div id="social_connect_facebook_auth" class="social_connect_hidden">
 				<input type="hidden" name="client_id" value="<?php echo get_option( 'social_connect_facebook_api_key' ); ?>" />
 				<input type="hidden" name="redirect_uri" value="<?php echo home_url('index.php?social-connect=facebook-callback'); ?>" />
 			</div>
-
-			<div id="social_connect_twitter_auth social_connect_hidden"><input type="hidden" name="redirect_uri" value="<?php echo home_url('index.php?social-connect=twitter'); ?>" /></div>
-			<div id="social_connect_google_auth social_connect_hidden"><input type="hidden" name="redirect_uri" value="<?php echo home_url('index.php?social-connect=google'); ?>" /></div>
-			<div id="social_connect_yahoo_auth social_connect_hidden"><input type="hidden" name="redirect_uri" value="<?php echo home_url('index.php?social-connect=yahoo'); ?>" /></div>
-			<div id="social_connect_wordpress_auth social_connect_hidden"><input type="hidden" name="redirect_uri" value="<?php echo home_url('index.php?social-connect=wordpress'); ?>" /></div>
+			<div id="social_connect_twitter_auth" class="social_connect_hidden">
+				<input type="hidden" name="redirect_uri" value="<?php echo home_url('index.php?social-connect=twitter'); ?>" />
+			</div>
+			<div id="social_connect_google_auth" class="social_connect_hidden">
+				<input type="hidden" name="redirect_uri" value="<?php echo home_url('index.php?social-connect=google'); ?>" />
+			</div>
+			<div id="social_connect_yahoo_auth" class="social_connect_hidden">
+				<input type="hidden" name="redirect_uri" value="<?php echo home_url('index.php?social-connect=yahoo'); ?>" />
+			</div>
+			<div id="social_connect_wordpress_auth" class="social_connect_hidden">
+				<input type="hidden" name="redirect_uri" value="<?php echo home_url('index.php?social-connect=wordpress'); ?>" />
+			</div>
 
 			<div class="social_connect_wordpress_form social_connect_hidden" title="WordPress">
 				<p><?php _e( 'Enter your WordPress.com blog URL', 'social_connect' ); ?></p><br />
