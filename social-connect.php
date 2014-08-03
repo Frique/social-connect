@@ -360,6 +360,7 @@ function sc_filter_avatar($avatar, $id_or_email, $size, $default, $alt) {
 
 				$custom_avatar = get_user_meta($user_id, 'social_connect_twitter_avatar', true);
 				$custom_avatar = str_replace('_normal', '_'.$size_label, $custom_avatar);
+				$custom_avatar = str_replace('http:', '', $custom_avatar);
 				break;
 		}
 	}
