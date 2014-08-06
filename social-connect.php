@@ -238,7 +238,7 @@ function sc_social_connect_process_login( $is_ajax = false ) {
 				update_user_meta( $user_id, 'social_connect_twitter_avatar', $sc_avatar );
 			}
 
-			do_action( 'social_connect_inserted_user', $user_id, $social_connect_provider );
+			do_action( 'social_connect_inserted_user', $user_id, 's'.$social_connect_provider );
 		} else {
 			add_filter( 'wp_login_errors', 'sc_login_errors' );
 
