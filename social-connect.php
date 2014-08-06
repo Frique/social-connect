@@ -28,15 +28,6 @@ function sc_activate(){
 }
 register_activation_hook( __FILE__, 'sc_activate' );
 
-
-/**
- * Registration.php is deprecated since version 3.1 with no alternative available.
- * registration.php functions moved to user.php, everything is now included by default
- * This file only need to be included for versions before 3.1.
- */
-if ( !function_exists( 'email_exists' ) )
-	require_once( ABSPATH . WPINC . '/registration.php' );
-
 /**
  * Internationalization of the plugin
  **/
@@ -167,12 +158,12 @@ function sc_social_connect_process_login( $is_ajax = false ) {
 					$sc_first_name = $sc_name;
 					$sc_last_name = '';
 				} else {
-					$names = explode(" ", $sc_username );
+					$names = explode( ' ', $sc_username, 2 );
 					$sc_first_name = $names[0];
 					$sc_last_name = $names[1];
 				}
 			} else {
-				$names = explode(" ", $sc_name );
+				$names = explode( ' ', $sc_name, 2 );
 				$sc_first_name = $names[0];
 				$sc_last_name = $names[1];
 			}
@@ -190,7 +181,7 @@ function sc_social_connect_process_login( $is_ajax = false ) {
 				$sc_first_name = $sc_name;
 				$sc_last_name = '';
 			} else {
-				$names = explode(" ", $sc_name );
+				$names = explode( ' ', $sc_name, 2 );
 				$sc_first_name = $names[0];
 				$sc_last_name = $names[1];
 			}
@@ -218,14 +209,7 @@ function sc_social_connect_process_login( $is_ajax = false ) {
 		if ( get_option( 'users_can_register' ) ) {
 			$user_login = sc_get_unique_username($user_login);
 
-			$userdata = array(
-				'user_login' => $user_login,
-				'user_email' => $sc_email,
-				'first_name' => $sc_first_name,
-				'last_name' => $sc_last_name,
-				'user_url' => $sc_profile_url,
-				'user_pass' => wp_generate_password(30)
-			);
+			$userdata = array( 'user_login' => $user_login, 'user_email' => $sc_email, 'first_name' => $sc_first_name, 'last_name' => $sc_last_name, 'user_url' => $sc_profile_url, 'user_pass' => wp_generate_password(50) );
 
 			// Create a new user
 			$user_id = wp_insert_user( apply_filters( 'social_connect_insert_user', $userdata ) );
