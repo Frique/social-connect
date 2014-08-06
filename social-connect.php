@@ -228,7 +228,7 @@ function sc_social_connect_process_login( $is_ajax = false ) {
 			);
 
 			// Create a new user
-			$user_id = wp_insert_user( do_filters( 'social_connect_insert_user', $userdata ) );
+			$user_id = wp_insert_user( apply_filters( 'social_connect_insert_user', $userdata ) );
 
 			if ( $user_id && is_integer( $user_id ) ) {
 				update_user_meta( $user_id, $sc_provider_identity_key, $sc_provider_identity );
