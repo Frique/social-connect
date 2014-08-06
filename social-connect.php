@@ -228,15 +228,17 @@ function sc_social_connect_process_login( $is_ajax = false ) {
 			);
 
 			// Create a new user
-			$user_id = wp_insert_user( $userdata );
+			$user_id = wp_insert_user( do_filters( 'social_connect_insert_user', $userdata ) );
 
 			if ( $user_id && is_integer( $user_id ) ) {
 				update_user_meta( $user_id, $sc_provider_identity_key, $sc_provider_identity );
 			}
 
-			if(isset($sc_avatar) && $sc_avatar){
-				update_user_meta($user_id, 'social_connect_twitter_avatar', $sc_avatar);
+			if( isset( $sc_avatar ) && $sc_avatar ){
+				update_user_meta( $user_id, 'social_connect_twitter_avatar', $sc_avatar );
 			}
+
+			do_action( 'social_connect_inserted_user', $user_id, $social_connect_provider );
 		} else {
 			add_filter( 'wp_login_errors', 'sc_login_errors' );
 
