@@ -64,7 +64,9 @@ function sc_render_login_form_social_connect( $args = NULL ) {
 			<div id="social_connect_google_auth" class="social_connect_hidden">
 				<input type="hidden" name="redirect_uri" value="<?php echo home_url('index.php?social-connect=google'); ?>" />
 			</div>
-			<div id="social_connect_google_plus_auth"><input type="hidden" name="redirect_uri" value="<?php echo home_url('index.php?social-connect=google-plus'); ?>" /></div>
+			<div id="social_connect_google_plus_auth" class="social_connect_hidden">
+				<input type="hidden" name="redirect_uri" value="<?php echo home_url('index.php?social-connect=google-plus'); ?>" />
+			</div>
 			<div id="social_connect_yahoo_auth" class="social_connect_hidden">
 				<input type="hidden" name="redirect_uri" value="<?php echo home_url('index.php?social-connect=yahoo'); ?>" />
 			</div>
