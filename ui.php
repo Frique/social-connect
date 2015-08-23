@@ -133,8 +133,9 @@ add_action( 'wp_footer', 'sc_render_login_page_uri' );
 /**
  * SocialConnectWidget Class
  */
+/*
 class SocialConnectWidget extends WP_Widget {
-	/** constructor */
+	// constructor
 	function SocialConnectWidget() {
 		parent::WP_Widget(
 			'social_connect', //unique id
@@ -145,7 +146,7 @@ class SocialConnectWidget extends WP_Widget {
 			);
 	}
 
-	/** This is rendered widget content */
+	// This is rendered widget content
 	function widget( $args, $instance ) {
 		extract( $args );
 
@@ -171,7 +172,7 @@ class SocialConnectWidget extends WP_Widget {
 		echo $after_widget;
 	}
 
-	/** Everything which should happen when user edit widget at admin panel */
+	// Everything which should happen when user edit widget at admin panel
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );
@@ -182,9 +183,9 @@ class SocialConnectWidget extends WP_Widget {
 		return $instance;
 	}
 
-	/** Widget edit form at admin panel */
+	// Widget edit form at admin panel
 	function form( $instance ) {
-		/* Set up default widget settings. */
+		// Set up default widget settings.
 		$defaults = array( 'title' => '', 'before_widget_content' => '', 'after_widget_content' => '' );
 
 		foreach( $instance as $key => $value )
@@ -207,7 +208,7 @@ class SocialConnectWidget extends WP_Widget {
 
 }
 add_action( 'widgets_init', create_function( '', 'return register_widget( "SocialConnectWidget" );' ));
-
+*/
 
 function sc_social_connect_shortcode_handler( $args ) {
 	if( !is_user_logged_in()) {
